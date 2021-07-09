@@ -27,7 +27,7 @@ For the metrics and images below, *initial* refers to the original analysis whil
 <ul>
 <li><p><b>District Summary</b>
 <p align="center">
-    <img src="https://github.com/samanthajpv/School_District_Analysis/blob/5eef8e19292d6cd3a292d1803041488e4121763e/Resources/Additional/District%20Summary.png" width="900" height="150" align="center">
+    <img src="https://github.com/samanthajpv/School_District_Analysis/blob/5eef8e19292d6cd3a292d1803041488e4121763e/Resources/Additional/District%20Summary.png" width="800" height="140" align="center">
 </p>
 The only change in the district summary that was affected was the *Average Math Score*. It went down by 0.1, which is minimal. The percentages were calculated using a new student count by subtracting the number of 9th graders from Thomas High School.</p></li>
 
@@ -43,9 +43,9 @@ The schools were arranged by the *% Overall Passing* and was done by the code be
 
 ```top_schools = per_school_summary_df.sort_values(["% Overall Passing"], ascending=False)```
 <p align="center">
-    <img src="https://github.com/samanthajpv/School_District_Analysis/blob/5eef8e19292d6cd3a292d1803041488e4121763e/Resources/Additional/Top%205%20Performing%20Schools.png" width="750" height="375" align="center">
+    <img src="https://github.com/samanthajpv/School_District_Analysis/blob/5eef8e19292d6cd3a292d1803041488e4121763e/Resources/Additional/Top%205%20Performing%20Schools.png" width="700" height="375" align="center">
 </p>
-Like the School Summary, only the data for Thomas High School changed. It still was in the top 5 performing schools and retained the 2nd place. The bottom 5 performing schools did not change.</p></li>
+Like the School Summary, only the data for Thomas High School changed. It still was in the top 5 performing schools and retained the 2nd place. The bottom 5 performing schools did not change and was displayed in ascending order.</p></li>
 
 <li><p><b>Math and Reading Scores by Grade</b>
 <p align="center">
@@ -56,23 +56,28 @@ The upated scores for the 9th graders at Thomas High School were replaced with *
 <li><p><b>Scores by School Spending</b>
 
 There were four bins created for the spending ranges. The ```.describe``` method was used to check the maximum and minimum per student budget where the bins were based on. ```.cut``` method was used to identify the bin for each student and afterwhich, the score averages were calculated.
-  
 ```
 spending_bins = [0, 585, 630, 645, 675]
 group_names = ["<$584", "$585-629", "$630-644", "$645-675"]
 #Categorize spending based on the bins.
 per_school_summary_df["Spending Ranges (Per Student)"] = pd.cut(per_school_capita, spending_bins, labels=group_names)
 ```
+
 <p align="center">
-    <img src="https://github.com/samanthajpv/School_District_Analysis/blob/5eef8e19292d6cd3a292d1803041488e4121763e/Resources/Additional/Scores%20by%20school%20spending.png" width="750" height="275" align="center">
+    <img src="https://github.com/samanthajpv/School_District_Analysis/blob/5eef8e19292d6cd3a292d1803041488e4121763e/Resources/Additional/Scores%20by%20school%20spending.png" width="675" height="275" align="center">
 </p>
 The results for scores by school spending did not change at all. Thomas High School belonged to the *$630-644* bin where there was negligible change in the scores. After formatting the scores and percentages, the result was the same as the initial analysis.</p></li>
     
 <li><p><b>Scores by School Size</b>
-
+<p align="center">
+    <img src="https://github.com/samanthajpv/School_District_Analysis/blob/20c52b6dc6ce38061e48b65b985d66390202dc64/Resources/Additional/Scores%20by%20school%20size.png" width="675" height="275" align="center">
+</p>
 The same process from the school spending was applied when creating the bins for the school size. Thomas High School belonged under the Medium school size category. The raw scores and percentages showed insignificant change resulting to the same numbers after the number formatting was applied.</p></li>
-<li><p><b>Scores by school type</b>
-    INSERT PHOTO
+    
+<li><p><b>Scores by School Type</b>
+<p align="center">
+    <img src="https://github.com/samanthajpv/School_District_Analysis/blob/20c52b6dc6ce38061e48b65b985d66390202dc64/Resources/Additional/Scores%20by%20school%20type.png" width="675" height="275" align="center">
+</p>
 By using only ```.groupby()``` and ```.mean()```, the scores by school type metric was created. Only the Charter numbers were affected since Thomas High School is under that category. Just like the scores by school spending and school size, the scores by school type was not affected by the change. There was minimal difference in the raw output but the formatted dataframe generated the same figures.</p></li>
 </ul>
 
@@ -84,5 +89,7 @@ After replacing the scores of the 9th graders from Thomas High School to NaN, al
 - With the formatting of one decimal place for grades and no decimal place for passing percentages, *Average Reading Score* increased by 0.1 in the School Summary and School Performance metrics.
 
 ## Reference
+    
 (1) Trilogy Education Services. (2021, July). *Module 4 Challenge*. https://courses.bootcampspot.com/courses/626/assignments/13382?module_item_id=212308
+    
 (2) Brook, C.(2020, December 1). *What is Data Integrity? Definition, Best Practices & More*. Digital Guardian. https://digitalguardian.com/blog/what-data-integrity-data-protection-101
